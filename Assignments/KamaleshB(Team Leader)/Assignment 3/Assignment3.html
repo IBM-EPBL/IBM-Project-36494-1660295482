@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.gall img {
+  width:100% ;
+  height:100% ;
+}
+
+div.desc {
+  padding: 10px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h2 {text-align: center;}
+h4 {text-align: center;}
+</style>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "7e53987e-0d25-4e7a-9fcf-36807784a049", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "e2c621d1-3005-454f-b3f6-49a736e4f64b", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+</head>
+<body>
+
+<h2>Assignment -3</h2>
+
+<h4>IBM PROGRAM</h4>
+
+<div class="responsive">
+  <div class="gallery">
+    
+      <img src="https://5object.s3.us-south.cloud-object-storage.appdomain.cloud/img1.jpg"  width="600" height="400">
+    </a>
+    <div class="desc"></div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    
+      <img src="https://5object.s3.us-south.cloud-object-storage.appdomain.cloud/img2.jpg"  width="600" height="400">
+    </a>
+    <div class="desc"></div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    
+      <img src="https://5object.s3.us-south.cloud-object-storage.appdomain.cloud/img3.jpeg" width="600" height="400"  >
+    </a>
+    <div class="desc"></div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+   
+      <img src="https://5object.s3.us-south.cloud-object-storage.appdomain.cloud/img4.jpg" width="600" height="400"  >
+    </a>
+    <div class="desc"></div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    
+      <img src="https://5object.s3.us-south.cloud-object-storage.appdomain.cloud/img5.jpg"  width="600" height="400">
+    </a>
+    <div class="desc"></div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+
+
+</body>
+</html>
