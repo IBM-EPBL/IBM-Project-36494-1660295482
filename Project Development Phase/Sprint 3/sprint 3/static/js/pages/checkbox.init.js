@@ -1,0 +1,1 @@
+var checkAll=document.getElementById("checkAll");checkAll&&(checkAll.onclick=function(){for(var c=document.querySelectorAll('.form-check-all input[type="checkbox"]'),e=0;e<c.length;e++)c[e].checked=this.checked});

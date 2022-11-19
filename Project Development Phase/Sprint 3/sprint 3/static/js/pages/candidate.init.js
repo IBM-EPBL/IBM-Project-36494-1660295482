@@ -1,0 +1,1 @@
+var singleFilter=new Choices("#choices-single-filter-orderby"),singleCandidate=new Choices("#choices-candidate-page");

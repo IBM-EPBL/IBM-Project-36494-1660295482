@@ -1,0 +1,647 @@
+{% extends 'base.html' %}
+
+{% block head %}
+        <title>Bookmarks Jobs </title>
+{% endblock %}
+
+
+{% block body %}
+
+    <body>
+         <!--start page Loader -->
+         <div id="preloader">
+            <div id="status">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+            </div>
+        </div>
+        <!--end page Loader -->
+
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+                <div class="container-fluid custom-container">
+                    <a class="navbar-brand text-dark fw-bold me-auto" href="{{ url_for('index') }}">
+                        <img src="../static/images/logo-dark.png" height="22" alt="" class="logo-dark" />
+                        <img src="../static/images/logo-light.png" height="22" alt="" class="logo-light" />
+                    </a>
+                    <div>
+                        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mx-auto navbar-center">
+                            <li class="nav-item">
+                                    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                                </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="jobsdropdown" role="button" data-bs-toggle="dropdown">
+                                    Company <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="jobsdropdown">
+                                    <li><a class="dropdown-item" href="{{ url_for('about') }}">About Us</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('services') }}">Services</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('team') }}">Team</a></li>
+                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                                    <a class="dropdown-item" href="{{ url_for('privacypolicy') }}">Priacy & Policy</a>
+                                    <li><a class="dropdown-item" href="{{ url_for('faqs') }}">Faqs</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="pagesdoropdown" role="button" data-bs-toggle="dropdown">
+                                    Pages
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center" aria-labelledby="pagesdoropdown">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Jobs</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('joblist') }}">Job List</a>
+                                                
+                                                <a class="dropdown-item" href="{{ url_for('jobgrid') }}">Job Grid</a>
+                                                
+                                                 <a class="dropdown-item" href="{{ url_for('jobdetails') }}">Job Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('jobcategories') }}">Jobs Categories</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Candidates / Companys</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('candidatelist') }}">Candidate List</a>
+                                                <a class="dropdown-item" href="candidate-grid.html">Candidate Grid</a>
+                                                <a class="dropdown-item" href="{{ url_for('candidatedetails') }}">Candidate Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('companylist') }}">Company List</a>
+                                                <a class="dropdown-item" href="{{ url_for('companydetails') }}">Company Details</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Extra Pages</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('signup') }}">Sign Up</a>
+                                                <a class="dropdown-item" href="{{ url_for('signin') }}">Sign In</a>
+                                                <a class="dropdown-item" href="{{ url_for('signout') }}">Sign Out</a>
+                                                <a class="dropdown-item" href="{{ url_for('resetpassword') }}">Reset Password</a>
+                                                <a class="dropdown-item" href="coming-soon.html">Coming Soon</a>
+                                                <a class="dropdown-item" href="404-error.html">404 Error</a>
+                                                 
+                                            </div>
+                                        </div><!--end col-->
+                                    </div>
+                                </div>
+                            </li><!--end dropdown-->
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="productdropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Blog 
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="productdropdown">
+                                    <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                                    <li><a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a class="dropdown-item" href="blog-modern.html">Blog Modern</a></li>
+                                    <li><a class="dropdown-item" href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a class="dropdown-item" href="blog-details.html">Blog details</a></li>
+                                    <li><a class="dropdown-item" href="blog-author.html">Blog Author</a></li>
+                                </ul>
+                            </li><!--end dropdown-->
+                            <li class="nav-item">
+                                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                            </li>
+                        </ul><!--end navbar-nav-->
+                    </div>
+                    <!--end navabar-collapse-->
+                    <ul class="header-menu list-inline d-flex align-items-center mb-0">
+                        <li class="list-inline-item dropdown me-4">
+                            
+                        <li class="list-inline-item dropdown">
+                            <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="../static/images/profile.jpg" alt="mdo" width="35" height="35" class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi, Jansh</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('managejobpost') }}.html">Manage Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('bookmark') }}">Bookmarks Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('profile') }}">My Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('signout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul><!--end header-menu-->
+                </div>
+                <!--end container-->
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- START SIGN-UP MODAL -->
+            <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body p-5">
+                            <div class="position-absolute end-0 top-0 p-3">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="auth-content">
+                                <div class="w-100">
+                                    <div class="text-center mb-4">
+                                        <h5>Sign Up</h5>
+                                        <p class="text-muted">Sign Up and get access to all the features of vip careers</p>
+                                    </div>
+                                    <form action="#" class="auth-form">
+                                        <div class="mb-3">
+                                            <label for="usernameInput" class="form-label">Username</label>
+                                            <input type="text" class="form-control" id="usernameInput" placeholder="Enter your username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="passwordInput" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="emailInput" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">I agree to the <a href="javascript:void(0)" class="text-primary form-text text-decoration-underline">Terms and conditions</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                                        </div>
+                                    </form>
+                                    <div class="mt-3 text-center">
+                                        <p class="mb-0">Already a member ? <a href="{{ url_for('signin') }}" class="form-text text-primary text-decoration-underline"> Sign-in </a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end modal-body-->
+                    </div><!--end modal-content-->
+                </div><!--end modal-dialog-->
+            </div>
+            <!-- END SIGN-UP MODAL -->
+
+            
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Start home -->
+                    <section class="page-title-box">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="text-center text-white">
+                                        <h3 class="mb-4">Bookmarks Jobs</h3>
+                                        <div class="page-next">
+                                            <nav class="d-inline-block" aria-label="breadcrumb text-center">
+                                                <ol class="breadcrumb justify-content-center">
+                                                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page"> Bookmarks Jobs </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </div>
+                        <!--end container-->
+                    </section>
+                    <!-- end home -->
+
+                    <!-- START SHAPE -->
+                    <div class="position-relative" style="z-index: 1">
+                        <div class="shape">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+                                <path fill="#FFFFFF" fill-opacity="1"
+                                    d="M0,192L120,202.7C240,213,480,235,720,234.7C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- END SHAPE -->
+
+
+                    <!-- START BOOKMARKS -->
+                    <section class="section">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-8">
+                                    <div>
+                                        <h6 class="fs-16 mb-0"> Bookmarks Jobs </h6>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-lg-4">
+                                    <div class="candidate-list-widgets">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="selection-widget mt-3 mt-lg-0">
+                                                    <select class="form-select" data-trigger name="choices-single-filter-orderby" id="choices-single-filter-orderby" aria-label="Default select example">
+                                                        <option value="df">Default</option>
+                                                        <option value="ne">Newest</option>
+                                                        <option value="od">Oldest</option>
+                                                        <option value="rd">Random</option>
+                                                    </select>
+                                                </div>
+                                            </div><!--end col-->
+                                            <div class="col-lg-6">
+                                                <div class="selection-widget mt-3 mt-lg-0">
+                                                    <select class="form-select" data-trigger name="choices-candidate-page" id="choices-candidate-page" aria-label="Default select example">
+                                                        <option value="df">All</option>
+                                                        <option value="ne">Last 2 Month</option>
+                                                        <option value="ne">Last 6 Month</option>
+                                                        <option value="ne">Last 12 Month</option>
+                                                        <option value="ne">Last 2 Year</option>
+                                                    </select>
+                                                </div>
+                                            </div><!--end col-->
+                                        </div><!--end row-->
+                                    </div><!--end candidate-list-widgets-->
+                                </div><!--end col-->
+                            </div><!--end row-->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-01.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">Business Associate</a> <small class="text-muted fw-normal">(2-4 Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">vip careers Technology Pvt.Ltd</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> California</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-danger mt-1">Part Time</span>
+                                                            <span class="badge bg-soft-warning mt-1">Urgent</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="View More">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-02.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">Marketing Director</a> <small class="text-muted fw-normal">(2-4 Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">Creative Agency</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> New York</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-danger mt-1">Part Time</span>
+                                                            <span class="badge bg-soft-info mt-1">Private</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="View More">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-03.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">HTML Developer</a> <small class="text-muted fw-normal">(2-4 Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">vip careers Technology Pvt.Ltd</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> California</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-purple mt-1">Freelance</span>
+                                                            <span class="badge bg-soft-primary mt-1">Internship</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="View More">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-04.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">Product Sales Specialist</a> <small class="text-muted fw-normal">(5+ Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">vip careers Technology Pvt.Ltd</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> California</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-success mt-1">Full Time</span>
+                                                            <span class="badge bg-soft-info mt-1">Private</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="View More">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-05.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">Product Designer</a> <small class="text-muted fw-normal">(0-5 Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">Creative Agency</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> California</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-primary mt-1">Internship</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" data-bs-toggle="tooltip" data-bs-placement="top" title="View More" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                    <div class="job-box card mt-4">
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-lg-1">
+                                                    <a href="{{ url_for('companydetails') }}"><img src="../static/images/featured-job/img-06.png" alt="" class="img-fluid rounded-3"></a>
+                                                </div><!--end col-->
+                                                <div class="col-lg-9">
+                                                    <div class="mt-3 mt-lg-0">
+                                                        <h5 class="fs-17 mb-1"><a href="{{ url_for('jobdetails') }}s.html" class="text-dark">Project Manager</a> <small class="text-muted fw-normal">(0-2 Yrs Exp.)</small></h5>
+                                                        <ul class="list-inline mb-0">
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0">vip careers Technology Pvt.Ltd</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="mdi mdi-map-marker"></i> California</p>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <p class="text-muted fs-14 mb-0"><i class="uil uil-wallet"></i> $250 - $800 / month</p>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="mt-2">
+                                                            <span class="badge bg-soft-success mt-1">Full Time</span>
+                                                            <span class="badge bg-soft-warning mt-1">Urgent</span>
+                                                            <span class="badge bg-soft-info mt-1">Private</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!--end col-->
+                                                <div class="col-lg-2 align-self-center">
+                                                    <ul class="list-inline mt-3 mb-0">
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="View More">
+                                                            <a href="{{ url_for('jobdetails') }}s.html" class="avatar-sm bg-soft-success d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="mdi mdi-eye"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#deleteModal"  class="avatar-sm bg-soft-danger d-inline-block text-center rounded-circle fs-18">
+                                                                <i class="uil uil-trash-alt"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!--end row-->
+                                        </div>
+                                    </div><!--end job-box-->
+                                </div><!--end col-->    
+                            </div><!--end row-->
+
+                            <div class="row">
+                                <div class="col-lg-12 mt-4 pt-2">
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination job-pagination mb-0 justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                                                    <i class="mdi mdi-chevron-double-left fs-15"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="javascript:void(0)">
+                                                    <i class="mdi mdi-chevron-double-right fs-15"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </div><!--end container-->
+                    </section>
+                    <!-- START BOOKMARKS -->
+
+                    <!-- DELETE Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="../staticBackdropLabel">Delete Jobs ?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <h6 class="text-danger"><i class="uil uil-exclamation-triangle"></i>Warning: Are you sure you want to delete job Post ?</h6>
+                                        <p class="text-muted"> Your jobs post will be permenently removed and you won't be able to see them again, including the once you're shared with your friends.</p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Yes, delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END DELETE MODAL -->
+
+                </div>
+                <!-- End Page-content -->
+
+                <!-- START SUBSCRIBE -->
+                <section class="bg-subscribe">
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-lg-6">
+                                <div class="text-center text-lg-start">
+                                    <h4 class="text-white">Get New Jobs Notification!</h4>
+                                    <p class="text-white-50 mb-0">Subscribe & get all related jobs notification.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mt-4 mt-lg-0">
+                                    <form class="subscribe-form" action="#">
+                                        <div class="input-group justify-content-center justify-content-lg-end">
+                                            <input type="text" class="form-control" id="subscribe" placeholder="Enter your email">
+                                            <button class="btn btn-primary" type="button" id="subscribebtn">Subscribe</button>
+                                        </div>
+                                    </form><!--end form-->
+                                </div>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end container-->
+                    <div class="email-img d-none d-lg-block">
+                        <img src="../static/images/subscribe.png" alt="" class="img-fluid">
+                    </div>
+                </section>
+                <!-- END SUBSCRIBE -->
+
+               
+
+                <!--start back-to-top-->
+                <button onclick="topFunction()" id="back-to-top">
+                    <i class="mdi mdi-arrow-up"></i>
+                </button>
+                <!--end back-to-top-->
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="../static/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
+
+
+        <!-- Choice Js -->
+        <script src="../static/libs/choices.js/public/../static/scripts/choices.min.js"></script>
+
+        <!-- Cnadidate Init Js -->
+        <script src="../static/js/pages/candidate.init.js"></script>
+
+        <!-- Switcher Js -->
+        <script src="../static/js/pages/switcher.init.js"></script>
+
+        <!-- App Js -->
+        <script src="../static/js/app.js"></script>
+        {% endblock %}
+
+    </body>
+</html>
