@@ -1,0 +1,1478 @@
+{% extends 'base.html' %}
+
+{% block head %}
+           <title>Components | Jobcy - Job Listing Template | Themesdesign</title>
+{% endblock %}
+
+
+{% block body %}
+
+    <body>
+         <!--start page Loader -->
+         <div id="preloader">
+            <div id="status">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+            </div>
+        </div>
+        <!--end page Loader -->
+
+
+
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+                <div class="container-fluid custom-container">
+                    <a class="navbar-brand text-dark fw-bold me-auto" href="{{ url_for('index') }}">
+                        <img src="static/images/logo-dark.png" height="22" alt="" class="logo-dark" />
+                        <img src="static/images/logo-light.png" height="22" alt="" class="logo-light" />
+                    </a>
+                    <div>
+                        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mx-auto navbar-center">
+                            <li class="nav-item">
+                                    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                                </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="jobsdropdown" role="button" data-bs-toggle="dropdown">
+                                    Company <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="jobsdropdown">
+                                    <li><a class="dropdown-item" href="{{ url_for('about') }}">About Us</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('services') }}">Services</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('team') }}">Team</a></li>
+                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                                    <a class="dropdown-item" href="{{ url_for('privacypolicy') }}">Priacy & Policy</a>
+                                    <li><a class="dropdown-item" href="{{ url_for('faqs') }}">Faqs</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="pagesdoropdown" role="button" data-bs-toggle="dropdown">
+                                    Pages
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center" aria-labelledby="pagesdoropdown">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Jobs</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('joblist') }}">Job List</a>
+                                                
+                                                <a class="dropdown-item" href="{{ url_for('jobgrid') }}">Job Grid</a>
+                                                
+                                                 <a class="dropdown-item" href="{{ url_for('jobdetails') }}">Job Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('jobcategories') }}">Jobs Categories</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Candidates / Companys</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('candidatelist') }}">Candidate List</a>
+                                                <a class="dropdown-item" href="candidate-grid.html">Candidate Grid</a>
+                                                <a class="dropdown-item" href="{{ url_for('candidatedetails') }}">Candidate Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('companylist') }}">Company List</a>
+                                                <a class="dropdown-item" href="{{ url_for('companydetails') }}">Company Details</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Extra Pages</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('signup') }}">Sign Up</a>
+                                                <a class="dropdown-item" href="{{ url_for('signin') }}">Sign In</a>
+                                                <a class="dropdown-item" href="{{ url_for('signout') }}">Sign Out</a>
+                                                <a class="dropdown-item" href="{{ url_for('resetpassword') }}">Reset Password</a>
+                                                <a class="dropdown-item" href="coming-soon.html">Coming Soon</a>
+                                                <a class="dropdown-item" href="404-error.html">404 Error</a>
+                                                 
+                                            </div>
+                                        </div><!--end col-->
+                                    </div>
+                                </div>
+                            </li><!--end dropdown-->
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="productdropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Blog 
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="productdropdown">
+                                    <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                                    <li><a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a class="dropdown-item" href="blog-modern.html">Blog Modern</a></li>
+                                    <li><a class="dropdown-item" href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a class="dropdown-item" href="blog-details.html">Blog details</a></li>
+                                    <li><a class="dropdown-item" href="blog-author.html">Blog Author</a></li>
+                                </ul>
+                            </li><!--end dropdown-->
+                            <li class="nav-item">
+                                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                            </li>
+                        </ul><!--end navbar-nav-->
+                    </div>
+                    <!--end navabar-collapse-->
+                    <ul class="header-menu list-inline d-flex align-items-center mb-0">
+                        <li class="list-inline-item dropdown me-4">
+                            <a href="javascript:void(0)" class="header-item noti-icon position-relative" id="notification" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="mdi mdi-bell fs-22"></i>
+                                <div class="count position-absolute">3</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end p-0" aria-labelledby="notification">
+                                <div class="notification-header border-bottom bg-light">
+                                    <h6 class="mb-1"> Notification </h6>
+                                    <p class="text-muted fs-13 mb-0">You have 4 unread Notification</p>
+                                </div>
+                                <div class="notification-wrapper dropdown-scroll">
+                                    <a href="javascript:void(0)" class="text-dark notification-item d-block active">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <div class="avatar-xs bg-primary text-white rounded-circle text-center">
+                                                    <i class="uil uil-user-check"></i>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mt-0 mb-1 fs-14">22 verified registrations</h6>
+                                                <p class="mb-0 fs-12 text-muted"><i class="mdi mdi-clock-outline"></i> <span>3 min
+                                                    ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a><!--end notification-item-->
+                                    <a href="javascript:void(0)" class="text-dark notification-item d-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="static/images/user/img-02.jpg" class="rounded-circle avatar-xs" alt="user-pic">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mt-0 mb-1 fs-14">James Lemire</h6>
+                                                <p class="text-muted fs-12 mb-0"><i class="mdi mdi-clock-outline"></i> <span>15 min
+                                                    ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a><!--end notification-item-->
+                                    <a href="javascript:void(0)" class="text-dark notification-item d-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="static/images/featured-job/img-04.png" class="rounded-circle avatar-xs"
+                                                    alt="user-pic">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mt-0 mb-1 fs-14">Applications has been approved</h6>
+                                                <p class="text-muted mb-0 fs-12"><i class="mdi mdi-clock-outline"></i> <span>45 min
+                                                    ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a><!--end notification-item-->
+                                    <a href="javascript:void(0)" class="text-dark notification-item d-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="static/images/user/img-01.jpg" class="rounded-circle avatar-xs"
+                                                    alt="user-pic">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mt-0 mb-1 fs-14">Kevin Stewart</h6>
+                                                <p class="text-muted mb-0 fs-12"><i class="mdi mdi-clock-outline"></i> <span>1 hour
+                                                    ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a><!--end notification-item-->
+                                    <a href="javascript:void(0)" class="text-dark notification-item d-block">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-shrink-0 me-3">
+                                                <img src="static/images/featured-job/img-01.png" class="rounded-circle avatar-xs"
+                                                    alt="user-pic">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mt-0 mb-1 fs-15">Creative Agency</h6>
+                                                <p class="text-muted mb-0 fs-12"><i class="mdi mdi-clock-outline"></i> <span>2 hour
+                                                    ago</span></p>
+                                            </div>
+                                        </div>
+                                    </a><!--end notification-item-->
+                                </div><!--end notification-wrapper-->
+                                <div class="notification-footer border-top text-center">
+                                    <a class="primary-link fs-13" href="javascript:void(0)">
+                                        <i class="mdi mdi-arrow-right-circle me-1"></i> <span>View More..</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-inline-item dropdown">
+                            <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="static/images/profile.jpg" alt="mdo" width="35" height="35" class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi, Jansh</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('managejob') }}">Manage Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('bookmark') }}">Bookmarks Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('profile') }}">My Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('signout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul><!--end header-menu-->
+                </div>
+                <!--end container-->
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- START SIGN-UP MODAL -->
+            <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body p-5">
+                            <div class="position-absolute end-0 top-0 p-3">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="auth-content">
+                                <div class="w-100">
+                                    <div class="text-center mb-4">
+                                        <h5>Sign Up</h5>
+                                        <p class="text-muted">Sign Up and get access to all the features of Jobcy</p>
+                                    </div>
+                                    <form action="#" class="auth-form">
+                                        <div class="mb-3">
+                                            <label for="usernameInput" class="form-label">Username</label>
+                                            <input type="text" class="form-control" id="usernameInput" placeholder="Enter your username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="passwordInput" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="emailInput" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">I agree to the <a href="javascript:void(0)" class="text-primary form-text text-decoration-underline">Terms and conditions</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                                        </div>
+                                    </form>
+                                    <div class="mt-3 text-center">
+                                        <p class="mb-0">Already a member ? <a href="{{ url_for('signin') }}" class="form-text text-primary text-decoration-underline"> Sign-in </a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end modal-body-->
+                    </div><!--end modal-content-->
+                </div><!--end modal-dialog-->
+            </div>
+            <!-- END SIGN-UP MODAL -->
+
+            
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Start home -->
+                    <section class="page-title-box">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="text-center text-white">
+                                        <h3 class="mb-4">Components</h3>
+                                        <div class="page-next">
+                                            <nav class="d-inline-block" aria-label="breadcrumb text-center">
+                                                <ol class="breadcrumb justify-content-center">
+                                                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Company</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page"> Components </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </div>
+                        <!--end container-->
+                    </section>
+                    <!-- end home -->
+
+                    <!-- START SHAPE -->
+                    <div class="position-relative" style="z-index: 1">
+                        <div class="shape">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+                                <path fill="#FFFFFF" fill-opacity="1"
+                                    d="M0,192L120,202.7C240,213,480,235,720,234.7C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- END SHAPE -->
+
+
+                    <!-- START COMPONETS-PAGE -->
+                    <section class="section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="d-none d-lg-block ui-elements-bar card">
+                                        <ul class="nav nav-pills flex-column" id="elementsBar">
+                                            <li class="nav-item">
+                                                <a href="#typography" class="nav-link">Typography</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#buttons" class="nav-link">Buttons</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#badges" class="nav-link">Badges</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#dropdowns" class="nav-link">Dropdowns</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#alerts" class="nav-link">Alerts</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#images" class="nav-link">Images</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#cards" class="nav-link">Cards</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#tabs" class="nav-link">Tabs</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#offcanvas" class="nav-link">Offcanvas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#modals" class="nav-link">Modals</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#pagination" class="nav-link">Pagination</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#progress" class="nav-link">Progress</a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a href="#tooltip" class="nav-link">Tooltips</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#spinner" class="nav-link">Spinners</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#grid" class="nav-link">Grid</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#video" class="nav-link">Video</a>
+                                            </li>
+                                        </ul>
+                                    </div><!--end ui-elements-->
+                                </div><!--end col-->
+                                <div class="col-lg-8">
+                                    <div class="card"  id="typography">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Font Family</h5> 
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="d-flex">
+                                                <div class="flex-shrink-0 me-4">
+                                                    <h1 class="display-4 mb-0">A</h1>
+                                                </div>
+                                                <div class="flex-grow-1 align-self-center">
+                                                    <p class="text-muted mb-2">Font Family</p>
+                                                    <h5 class="mb-0">"Inter", sans-serif</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex align-items-center mt-4 mt-sm-0">
+                                                        <div class="flex-shrink-0 me-4">
+                                                            <h1 class="fw-normal display-4 mb-0">Aa</h1>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <p class="text-muted mb-2">Font Weight</p>
+                                                            <h4 class="mb-0">400</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-shrink-0 me-4">
+                                                            <h1 class="fw-medium display-4 mb-0">Aa</h1>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <p class="text-muted mb-2">Font Weight</p>
+                                                            <h4 class="mb-0">500</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="d-flex align-items-center mt-4 mt-sm-0">
+                                                        <div class="flex-shrink-0 me-4">
+                                                            <h1 class="fw-semibold display-4 mb-0">Aa</h1>
+                                                        </div>
+                                                        <div class="flex-grow-1">
+                                                            <p class="text-muted mb-2">Font Weight</p>
+                                                            <h4 class="mb-0">600</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-4">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Typography Heading</h5> 
+                                        </div>
+                                        <div class="card-body p-4">
+
+                                            <h6 class="card-title">Headings</h6>
+                                            <p class="text-muted">All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available.</p>
+
+                                            <h1 class="mb-3">h1. Bootstrap heading</h1>
+                                            
+                                            <h2 class="mb-3">h2. Bootstrap heading</h2>
+                                            
+                                            <h3 class="mb-3">h3. Bootstrap heading</h3>
+                                            
+                                            <h4 class="mb-3">h4. Bootstrap heading</h4>
+                                            
+                                            <h5 class="mb-3">h5. Bootstrap heading</h5>
+                                            
+                                            <h6>h6. Bootstrap heading</h6>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-4">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Display Heading</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Display headings</h6>
+                                            <p class="text-muted">Traditional heading elements are designed to work best in the meat of your page content. </p>
+
+                                            <h1 class="display-1">Display 1</h1>
+                                            <h1 class="display-2">Display 2</h1>
+                                            <h1 class="display-3">Display 3</h1>
+                                            <h1 class="display-4">Display 4</h1>
+                                            <h1 class="display-5">Display 5</h1>
+                                            <h1 class="display-6 mb-0">Display 6</h1>
+                                        </div>
+                                    </div>
+                                    <div class="card mt-4" id="buttons">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Button</h5> 
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <h6 class="card-title">Basic Buttons</h6>
+                                            <p class="text-muted">
+                                                Bootstrap includes six predefined button styles, each serving its own semantic purpose..
+                                            </p>
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <button type="button" class="btn btn-primary">Primary</button>
+                                                <button type="button" class="btn btn-secondary">Secondary</button>
+                                                <button type="button" class="btn btn-success">Success</button>
+                                                <button type="button" class="btn btn-info">Info</button>
+                                                <button type="button" class="btn btn-warning">Warning</button>
+                                                <button type="button" class="btn btn-danger">Danger</button>
+                                                <button type="button" class="btn btn-purple">Purple</button>
+                                                <button type="button" class="btn btn-dark">Dark</button>
+                                                <button type="button" class="btn btn-light">Light</button>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Soft Buttons</h6>
+                                                <p class="text-muted">
+                                                    Use <code>.bg-soft-*</code> class for a badge lighten.
+                                                </p>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <button type="button" class="btn btn-soft-primary">Primary</button>
+                                                    <button type="button" class="btn btn-soft-secondary">Secondary</button>
+                                                    <button type="button" class="btn btn-soft-success">Success</button>
+                                                    <button type="button" class="btn btn-soft-info">Info</button>
+                                                    <button type="button" class="btn btn-soft-warning">Warning</button>
+                                                    <button type="button" class="btn btn-soft-danger">Danger</button>
+                                                    <button type="button" class="btn btn-soft-purple">Purple</button>
+                                                    <button type="button" class="btn btn-soft-dark">Dark</button>
+                                                    <button type="button" class="btn btn-soft-light">Light</button>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Outline Buttons</h6>
+                                                <p class="text-muted">Replace the default modifier classes with the <code class="highlighter-rouge">           .btn-outline-*</code> ones to remove all background images and colors on any button.</p>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <button type="button" class="btn btn-outline-primary">Primary</button>
+                                                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+                                                    <button type="button" class="btn btn-outline-success">Success</button>
+                                                    <button type="button" class="btn btn-outline-info">Info</button>
+                                                    <button type="button" class="btn btn-outline-warning">Warning</button>
+                                                    <button type="button" class="btn btn-outline-danger">Danger</button>
+                                                    <button type="button" class="btn btn-outline-purple">Purple</button>
+                                                    <button type="button" class="btn btn-outline-dark">Dark</button>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Rounded Buttons</h6>
+                                                <p class="text-muted">
+                                                    Use the <code>.rounded-pill</code> modifier class to make badges more rounded.
+                                                </p>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <button type="button" class="btn btn-primary rounded-pill">Primary</button>
+                                                    <button type="button" class="btn btn-secondary rounded-pill">Secondary</button>
+                                                    <button type="button" class="btn btn-success rounded-pill">Success</button>
+                                                    <button type="button" class="btn btn-info rounded-pill">Info</button>
+                                                    <button type="button" class="btn btn-warning rounded-pill">Warning</button>
+                                                    <button type="button" class="btn btn-danger rounded-pill">Danger</button>
+                                                    <button type="button" class="btn btn-purple rounded-pill">Purple</button>
+                                                    <button type="button" class="btn btn-dark rounded-pill">Dark</button>
+                                                    <button type="button" class="btn btn-light rounded-pill">Light</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end buttons-->
+                                    <div class="card mt-4" id="badges">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Badges</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Basic</h6>
+                                            <p class="text-muted">
+                                                Add any of the below mentioned modifier classes to change the appearance of a badge.
+                                            </p>
+                                            <div>
+                                                <span class="badge bg-primary">Primary</span>
+                                                <span class="badge bg-secondary">Secondary</span>
+                                                <span class="badge bg-success">Success</span>
+                                                <span class="badge bg-info">Info</span>
+                                                <span class="badge bg-warning">Warning</span>
+                                                <span class="badge bg-danger">Danger</span>
+                                                <span class="badge bg-dark">Dark</span>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Soft Badges</h6>
+                                                <p class="text-muted">
+                                                    Use <code>.bg-soft-*</code> class for a pill badge.
+                                                </p>
+                                                <div>
+                                                    <span class="badge bg-soft-primary">Primary</span>
+                                                    <span class="badge bg-soft-success">Success</span>
+                                                    <span class="badge bg-soft-info">Info</span>
+                                                    <span class="badge bg-soft-warning">Warning</span>
+                                                    <span class="badge bg-soft-danger">Danger</span>
+                                                    <span class="badge bg-soft-dark">Dark</span>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Soft Badges</h6>
+                                                <p class="text-muted">
+                                                    Use <code>.bg-soft-*</code> class for a pill badge.
+                                                </p>
+                                                <div>
+                                                    <span class="badge rounded-pill bg-primary">Primary</span>
+                                                    <span class="badge rounded-pill bg-secondary">Secondary</span>
+                                                    <span class="badge rounded-pill bg-success">Success</span>
+                                                    <span class="badge rounded-pill bg-info">Info</span>
+                                                    <span class="badge rounded-pill bg-warning">Warning</span>
+                                                    <span class="badge rounded-pill bg-danger">Danger</span>
+                                                    <span class="badge rounded-pill bg-dark">Dark</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end badges-->
+                                    <div class="card mt-4" id="dropdowns">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Dropdowns</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <p class="card-title-desc">
+                                                Any single <code class="highlighter-rouge">.btn</code> can be turned into a dropdown
+                                                toggle with some markup changes. Here’s how you can put them to work
+                                                with either <code class="highlighter-rouge">&lt;button&gt;</code>
+                                                elements:
+                                            </p>
+                                            <div class="d-flex gap-2 flex-wrap">
+                                                <div class="dropdown">
+                                                    <button class="btn btn-primary" type="button" id="dropdownMenuprimary" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Primary
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuprimary">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-secondary" type="button" id="dropdownMenusecondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Secondary
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenusecondary">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-info" type="button" id="dropdownMenuinfo" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Info
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuinfo">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-success" type="button" id="dropdownMenusuccess" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Success
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenusuccess">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-warning" type="button" id="dropdownMenuwarning" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Warning
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuwarning">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-danger" type="button" id="dropdownMenudanger" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Danger
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenudanger">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-dark" type="button" id="dropdownMenudark" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Dark
+                                                    <span class="arrow-down"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenudark">
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Something else</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end dropdowns-->
+                                    <div class="card mt-4" id="alerts">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Alerts</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <h6 class="card-title">Basic</h6>
+                                            <p class="text-muted">Alerts are available for any length of text, as well as an optional close button.</p>
+                                            <div>
+                                                <div class="alert  bg-soft-primary" role="alert">
+                                                    A simple primary alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-secondary" role="alert">
+                                                    A simple secondary alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-success" role="alert">
+                                                    A simple success alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-purple" role="alert">
+                                                    A simple purple alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-danger" role="alert">
+                                                    A simple danger alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-warning" role="alert">
+                                                    A simple warning alert—check it out!
+                                                </div>
+                                                <div class="alert  bg-soft-info" role="alert">
+                                                    A simple info alert—check it out!
+                                                </div>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Dismissing Alerts</h6>
+                                                <p class="text-muted">Alerts are available for any length of text, as well as an optional close button.</p>
+                                                <div class="">
+                                                    <div class="alert bg-soft-primary alert-dismissible fade show" role="alert">
+                                                        A simple primary alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">  
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-secondary alert-dismissible fade show" role="alert">
+                                                        A simple secondary alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-success alert-dismissible fade show" role="alert">
+                                                        A simple success alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-purple alert-dismissible fade show" role="alert">
+                                                        A simple purple alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-danger alert-dismissible fade show" role="alert">
+                                                        A simple danger alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-warning alert-dismissible fade show" role="alert">
+                                                        A simple warning alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                    <div class="alert bg-soft-info alert-dismissible fade show" role="alert">
+                                                        A simple info alert—check it out!
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--end alerts-->
+                                    <div class="card mt-4" id="images">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Images </h5> 
+                                        </div>
+                                        <div class="card-body p-4">
+
+                                            <h6 class="card-title">Image Sizes</h6>
+                                            <p class="text-muted">Use classes <code>.avatar-*</code>.</p>
+                                            <div>
+                                                <img src="static/images/user/img-02.jpg" alt="" class="avatar-xs">
+                                                <img src="static/images/user/img-02.jpg" alt="" class="avatar-sm">
+                                                <img src="static/images/user/img-02.jpg" alt="" class="avatar-md">
+                                                <img src="static/images/user/img-02.jpg" alt="" class="avatar-lg">
+                                            </div>
+                                        </div>
+                                    </div><!--end images-->
+                                    <div class="card mt-4" id="cards">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Card </h5> 
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="card mt-4">
+                                                        <img class="card-img-top img-fluid" src="static/images/blog/img-01.jpg" alt="Card image cap">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-2">Card title</h5>
+                                                            <p class="card-text">Some quick example text to build on the card title and make
+                                                                up the bulk of the card's content.</p>
+                                                            <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+                                                        </div>
+                                                    </div><!-- end card -->
+                                                </div><!-- end col -->
+                                                <div class="col-md-6">
+                                                    <div class="card mt-4">
+                                                        <img class="card-img-top img-fluid" src="static/images/blog/img-03.jpg" alt="Card image cap">
+                                                        <div class="card-body">
+                                                            <p class="card-text">Some quick example text to build on the card title and make
+                                                                up the bulk of the card's content.</p>
+                                                        </div>
+                                                    </div><!-- end card -->
+                                                </div><!-- end col -->
+                                                <div class="col-md-6">
+                                                    <div class="card mt-4">
+                                                        <img class="card-img-top img-fluid" src="static/images/blog/img-02.jpg" alt="Card image cap">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-2">Card title</h5>
+                                                            <p class="card-text">Some quick example text to build on the card title and make
+                                                                up the bulk of the card's content.</p>
+                                                            <a href="javascript:void(0)" class="card-link text-primary">Card link</a>
+                                                            <a href="javascript:void(0)" class="card-link text-primary">Another link</a>
+                                                        </div>
+                                                    </div><!-- end card -->
+                                                </div><!-- end col -->
+                                                <div class="col-md-6">
+                                                    <div class="card mt-4">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mb-2">Card title</h5>
+                                                            <h6 class="card-subtitle fs-14 text-muted">Support card subtitle</h6>
+                                                        </div>
+                                                        <img class="img-fluid" src="static/images/blog/img-01.jpg" alt="Card image cap">
+                                                        <div class="card-body">
+                                                            <p class="card-text">Some quick example text to build on the card title and make
+                                                                up the bulk of the card's content.</p>
+                                                            <a href="javascript:void(0)" class="card-link text-primary">Card link</a>
+                                                            <a href="javascript:void(0)" class="card-link text-primary">Another link</a>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end col -->
+                                            </div><!--end row-->
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+                                    <div class="card mt-4" id="tabs">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Tabs</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div>
+                                                <h6 class="card-title">Basic Tabs</h6>
+                                                <p class="text-muted">Example of Default Nav Tabs</p>
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" data-bs-toggle="tab" href="#hometab" role="tab">
+                                                            <span>Home</span>    
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab">
+                                                            <span>Profile</span>    
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab">
+                                                            <span>Messages</span>    
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#settings" role="tab">
+                                                            <span>Settings</span>    
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content p-3 border border-top-0 rounded-bottom text-muted">
+                                                    <div class="tab-pane active" id="hometab" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Raw denim you probably haven't heard of them jean shorts Austin.
+                                                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                                                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                                                            butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh 
+                                                            iphone. Seitan aliquip butcher voluptate nisi qui.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="profile" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                                                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                                                            sartorial PBR leggings next level wes anderson artisan four loko
+                                                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                                                            aesthetic magna delectus.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="messages" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                                                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                                                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                                                            tattooed craft beer, iphone skateboard locavore carles etsy
+                                                            mi whatever gluten yr.
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="settings" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                                                            art party before they sold out master cleanse gluten-free squid
+                                                            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                                                            art party locavore wolf cliche high life echo park Austin. Cred
+                                                            vinyl keffiyeh DIY salvia farm-to-table VHS.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div><!--end basic-tabs-->
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Basic Nav Pills</h6>
+                                                <p class="text-muted">Example of Default Nav Tabs</p>
+                                                <ul class="nav nav-pills custom" role="tablist">
+                                                    <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab">
+                                                            <span>Home</span> 
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab">
+                                                            <span>Profile</span> 
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#messages-1" role="tab">
+                                                            <span>Messages</span>   
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item waves-effect waves-light">
+                                                        <a class="nav-link" data-bs-toggle="tab" href="#settings-1" role="tab">
+                                                            <span>Settings</span>    
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content p-3 text-muted">
+                                                    <div class="tab-pane active" id="home-1" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Raw denim you probably haven't heard of them jean shorts Austin.
+                                                            Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
+                                                            cliche tempor, williamsburg carles vegan helvetica. Reprehenderit
+                                                            qui irure terry richardson ex squid. Aliquip placeat salvia cillum
+                                                            iphone. Seitan aliquip quis cardigan american apparel
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="profile-1" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla
+                                                            single-origin coffee squid. Exercitation +1 labore velit, blog
+                                                            sartorial PBR leggings next level wes anderson artisan four loko
+                                                            farm-to-table craft beer twee. Qui photo booth letterpress,
+                                                            vinyl cillum PBR. Homo nostrud organic labore
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="messages-1" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Etsy mixtape wayfarers, ethical wes anderson tofu before they
+                                                            sold out mcsweeney's organic lomo retro fanny pack lo-fi
+                                                            farm-to-table readymade. Messenger bag gentrify pitchfork
+                                                            tattooed craft beer, iphone skateboard locavore carles etsy
+                                                            Leggings gentrify squid 8-bit cred pitchfork
+                                                        </p>
+                                                    </div>
+                                                    <div class="tab-pane" id="settings-1" role="tabpanel">
+                                                        <p class="mb-0">
+                                                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+                                                            art party before they sold out master cleanse gluten-free squid
+                                                            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+                                                            vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
+                                                            farm-to-table.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div><!--end nav-pills-->
+                                        </div><!--end card-body-->
+                                    </div><!--end tabs-->
+                                    <div class="card mt-4" id="offcanvas">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Offcanvas</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <p class="text-muted">Use the buttons below to show and hide an offcanvas element via JavaScript that toggles the <code>.show</code> class on an element with the <code>.offcanvas</code> class.</p>
+
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                                                    Link with href
+                                                </a>
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                                                    Button with data-bs-target
+                                                </button>
+                                            </div>
+                                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" aria-hidden="true" style="visibility: hidden;">
+                                                <div class="offcanvas-header">
+                                                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                                </div>
+                                                <div class="offcanvas-body">
+                                                    <div>
+                                                        Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                                                    </div>
+                                                    <div class="dropdown mt-3">
+                                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                                            Dropdown button <i class="mdi mdi-chevron-down"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                            <li><a class="dropdown-item" href="javascript:void(0)">Action</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0)">Another action</a></li>
+                                                            <li><a class="dropdown-item" href="javascript:void(0)">Something else here</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div><!--end offcanvas-->
+                                        </div><!--end card-body-->
+                                    </div><!--end offcanvas-->
+                                    <div class="card mt-4" id="modals">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Modals</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Basic</h6>
+                                            <p class="text-muted">Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.</p>
+
+                                            <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#myModal">Standard modal</button>
+                                            <!-- SIMPLE MODALS -->
+                                            <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title mt-0" id="myModalLabel">Modal Heading</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>Cras mattis consectetur purus sit amet fermentum.
+                                                                Cras justo odio, dapibus ac facilisis in,
+                                                                egestas eget quam. Morbi leo risus, porta ac
+                                                                consectetur ac, vestibulum at eros.</p>
+                                    
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                        </div>
+                                                    </div><!-- /.modal-content -->
+                                                </div><!-- /.modal-dialog -->
+                                            </div><!-- SIMPLE MODALS -->
+                                        </div>
+                                    </div><!--end modal-->
+                                    <div class="card mt-4" id="pagination">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Pagination</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <p class="text-muted">Pagination links indicate a series of related content exists across multiple pages.</p>
+
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination job-pagination mb-0">
+                                                    <li class="page-item disabled">
+                                                        <a class="page-link" href="javascript:void(0)" tabindex="-1">
+                                                            <i class="mdi mdi-chevron-double-left fs-15"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="javascript:void(0)">
+                                                            <i class="mdi mdi-chevron-double-right fs-15"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div><!--end paginations-->
+                                    <div class="card mt-4" id="progress">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Progress</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Basic</h6>
+                                            <p class="text-muted">Progress components are built with two HTML elements, some CSS to set the width, and a few attributes.</p>
+
+                                            <div>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Striped & Animated</h6>
+                                                <p class="text-muted">Add <code>.progress-bar-striped</code>
+                                                    to any <code>.progress-bar</code> to apply a
+                                                    stripe via CSS gradient over the progress bar’s background color.</p>
+                                                <div>
+                                                    <div class="progress mb-4">
+                                                        <div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress mb-4">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress mb-4">
+                                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress mb-4">
+                                                        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div><!--end Striped & Animated-->
+                                        </div><!--end card-body-->
+                                    </div><!--end progress-->
+                                    <div class="card mt-4" id="tooltip">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Tooltips</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Tooltips</h6>
+                                            <p class="text-muted">Hover over the links below to see tooltips.</p>
+
+                                            <div class="d-flex flex-wrap gap-2">
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Tooltip on top">
+                                                    Tooltip on top
+                                                </button>
+
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Tooltip on right">
+                                                    Tooltip on right
+                                                </button>
+
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Tooltip on bottom">
+                                                    Tooltip on bottom
+                                                </button>
+
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="" data-bs-original-title="Tooltip on left">
+                                                    Tooltip on left
+                                                </button>
+
+                                            </div><!--end tooltips-->
+                                        </div><!--end card-body-->
+                                    </div><!--end progress-->
+                                    <div class="card mt-4" id="spinner">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Spinners</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                        
+                                            <h6 class="card-title">Border</h6>
+                                            <p class="text-muted">Add <code>text-*</code> color for a Spinner color variation.</p>
+
+                                            <div>
+                                                <div class="spinner-border text-primary m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-secondary m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-success m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-info m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-warning m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-danger m-1" role="status">
+                    
+                                                </div>
+                                                <div class="spinner-border text-dark m-1" role="status">
+                                                
+                                                </div>
+                                            </div><!--end spinner-->
+                                            <div class="mt-5">
+                                                <h6 class="card-title">Growing</h6>
+                                                <p class="text-muted">Switch to the grow spinner.it does repeatedly grow Continue!</p>
+
+                                                <div>
+                                                    <div class="spinner-grow text-secondary m-1" role="status">
+                                                    
+                                                    </div>
+                                                    <div class="spinner-grow text-success m-1" role="status">
+                                                    
+                                                    </div>
+                                                    <div class="spinner-grow text-info m-1" role="status">
+                                                    
+                                                    </div>
+                                                    <div class="spinner-grow text-warning m-1" role="status">
+                                                    
+                                                    </div>
+                                                    <div class="spinner-grow text-danger m-1" role="status">
+                                                    
+                                                    </div>
+                                                    <div class="spinner-grow text-dark m-1" role="status">
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div><!--end Growing-->
+                                        </div><!--end card-body-->
+                                    </div><!--end progress-->
+                                    <div class="card mt-4" id="grid">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Grid</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-striped mb-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"></th>
+                                                            <th scope="col" class="text-center">
+                                                                xs<br>
+                                                                <span class="fw-normal">&lt;576px</span>
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                                sm<br>
+                                                                <span class="fw-normal">≥576px</span>
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                                md<br>
+                                                                <span class="fw-normal">≥768px</span>
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                                lg<br>
+                                                                <span class="fw-normal">≥992px</span>
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                                xl<br>
+                                                                <span class="fw-normal">≥1200px</span>
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                                xxl<br>
+                                                                <span class="fw-normal">≥1400px</span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row"> container <code>Max width</code></th>
+                                                            <td>None (auto)</td>
+                                                            <td>540px</td>
+                                                            <td>720px</td>
+                                                            <td>960px</td>
+                                                            <td>1140px</td>
+                                                            <td>1320px</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Class prefix</th>
+                                                            <td><code>.col-</code></td>
+                                                            <td><code>.col-sm-</code></td>
+                                                            <td><code>.col-md-</code></td>
+                                                            <td><code>.col-lg-</code></td>
+                                                            <td><code>.col-xl-</code></td>
+                                                            <td><code>.col-xxl-</code></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row"># of columns</th>
+                                                            <td colspan="6">12</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Gutter width</th>
+                                                            <td colspan="6">24px (12px on each side of a column)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Custom gutters</th>
+                                                            <td colspan="6">Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Nestable</th>
+                                                            <td colspan="6">Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Offsets</th>
+                                                            <td colspan="6">Yes</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="text-nowrap" scope="row">Column ordering</th>
+                                                            <td colspan="6">Yes</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table><!--end table-->
+                                            </div>  
+                                        </div><!--end card-body-->
+                                    </div><!--end grid-->
+                                    <div class="card mt-4" id="video">
+                                        <div class="p-4 border-bottom">
+                                            <h5 class="mb-0">Video</h5>  
+                                        </div>
+                                        <div class="card-body p-4">
+                                            <div>
+                                                <h6 class="card-title">Responsive Embed Video 16:9</h6>
+                                                <p class="text-muted">Aspect ratios can be customized with modifier classes.</p>
+                                                <div class="ratio ratio-16x9"> 
+                                                    <iframe src="https://www.youtube.com/embed/1y_kfWUCFDQ" title="YouTube video" allowfullscreen></iframe>  
+                                                </div>
+                                            </div> 
+                                        </div><!--end card-body-->
+                                    </div><!--end video-->
+                                </div><!--end col-->
+                            </div><!--end row-->    
+                        </div><!--end container-->
+                    </section>
+                    <!-- END COMPONETS-PAGE -->
+
+                </div>
+                <!-- End Page-content -->
+
+                <!-- START SUBSCRIBE -->
+                <section class="bg-subscribe">
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-lg-6">
+                                <div class="text-center text-lg-start">
+                                    <h4 class="text-white">Get New Jobs Notification!</h4>
+                                    <p class="text-white-50 mb-0">Subscribe & get all related jobs notification.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mt-4 mt-lg-0">
+                                    <form class="subscribe-form" action="#">
+                                        <div class="input-group justify-content-center justify-content-lg-end">
+                                            <input type="text" class="form-control" id="subscribe" placeholder="Enter your email">
+                                            <button class="btn btn-primary" type="button" id="subscribebtn">Subscribe</button>
+                                        </div>
+                                    </form><!--end form-->
+                                </div>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end container-->
+                    <div class="email-img d-none d-lg-block">
+                        <img src="static/images/subscribe.png" alt="" class="img-fluid">
+                    </div>
+                </section>
+                <!-- END SUBSCRIBE -->
+
+                <!-- START FOOTER -->
+                <section class="bg-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="footer-item mt-4 mt-lg-0 me-lg-5">
+                                    <h4 class="text-white mb-4">Jobcy</h4>
+                                    <p class="text-white-50">It is a long established fact that a reader will be of a page reader
+                                        will be of at its layout.</p>
+                                    <p class="text-white mt-3">Follow Us on:</p>
+                                    <ul class="footer-social-menu list-inline mb-0">
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-google"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">Company</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('about') }}"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
+                                        <li><a href="{{ url_for('contact') }}"><i class="mdi mdi-chevron-right"></i> Contact Us</a></li>
+                                        <li><a href="{{ url_for('services') }}"><i class="mdi mdi-chevron-right"></i> Services</a></li>
+                                        <li><a href="blog.html"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
+                                        <li><a href="{{ url_for('team') }}"><i class="mdi mdi-chevron-right"></i> Team</a></li>
+                                        <li><a href="pricing.html"><i class="mdi mdi-chevron-right"></i> Pricing</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">For Jobs</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('jobcategories') }}"><i class="mdi mdi-chevron-right"></i> Browser Categories</a></li>
+                                        <li><a href="{{ url_for('joblist') }}"><i class="mdi mdi-chevron-right"></i> Browser Jobs</a></li>
+                                        <li><a href="{{ url_for('jobdetails') }}s.html"><i class="mdi mdi-chevron-right"></i> Job Details</a></li>
+                                        <li><a href="{{ url_for('bookmark') }}"><i class="mdi mdi-chevron-right"></i> Bookmark Jobs</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="text-white fs-16 mb-4">For Candidates</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('candidatelist') }}"><i class="mdi mdi-chevron-right"></i> Candidate List</a></li>
+                                        <li><a href="candidate-grid.html"><i class="mdi mdi-chevron-right"></i> Candidate Grid</a></li>
+                                        <li><a href="{{ url_for('candidatedetails') }}"><i class="mdi mdi-chevron-right"></i> Candidate Details</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">Support</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('contact') }}"><i class="mdi mdi-chevron-right"></i> Help Center</a></li>
+                                        <li><a href="{{ url_for('faqs') }}"><i class="mdi mdi-chevron-right"></i> FAQ'S</a></li>
+                                        <li><a href="{{ url_for('privacypolicy') }}"><i class="mdi mdi-chevron-right"></i> Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end container-->
+                </section>
+                <!-- END FOOTER -->
+
+                <!-- START FOOTER-ALT -->
+                <div class="footer-alt">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p class="text-white-50 text-center mb-0">
+                                  TEAM - Kamalesh, Dharun, Bosha Pranesh, Praveen Kumar
+                                </p>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end container-->
+                </div>
+                <!-- END FOOTER -->
+
+                <!-- Style switcher -->
+                <div id="style-switcher" onclick="toggleSwitcher()" style="left: -165px;">
+                    <div>
+                        <h6>Select your color</h6>
+                        <ul class="pattern list-unstyled mb-0">
+                            <li>
+                                <a class="color-list color1" href="javascript: void(0);" onclick="setColorGreen()"></a>
+                            </li>
+                            <li>
+                                <a class="color-list color2" href="javascript: void(0);" onclick="setColor('blue')"></a>
+                            </li>
+                            <li>
+                                <a class="color-list color3" href="javascript: void(0);" onclick="setColor('green')"></a>
+                            </li>
+                        </ul>
+                        <div class="mt-3">
+                            <h6>Light/dark Layout</h6>
+                            <div class="text-center mt-3">
+                                <!-- light-dark mode -->
+                                <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-3">
+                                    <i class="uil uil-brightness mode-dark mx-auto"></i>
+                                    <i class="uil uil-moon mode-light"></i>
+                                </a>
+                                <!-- END light-dark Mode -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom d-none d-md-block" >
+                        <a href="javascript: void(0);" class="settings rounded-end"><i class="mdi mdi-cog mdi-spin"></i></a>
+                    </div>
+                </div>
+                <!-- end switcher-->
+
+                <!--start back-to-top-->
+                <button onclick="topFunction()" id="back-to-top">
+                    <i class="mdi mdi-arrow-up"></i>
+                </button>
+                <!--end back-to-top-->
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="static/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
+
+
+        <!-- Gumshoe Js -->
+        <script src="static/libs/gumshoejs/gumshoe.min.js"></script>
+
+        <script src="static/libs/smooth-scroll/smooth-scroll.polyfills.min.js"></script>
+
+        <!-- Switcher Js -->
+        <script src="static/js/pages/switcher.init.js"></script>
+
+        <script src="static/js/pages/componets.init.js"></script>
+
+        <script src="static/js/app.js"></script>
+        {% endblock %}
+
+    </body>
+</html>

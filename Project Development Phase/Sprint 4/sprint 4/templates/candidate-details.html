@@ -1,0 +1,738 @@
+{% extends 'base.html' %}
+
+{% block head %}
+         <title>Candidate Details </title>
+{% endblock %}
+
+
+{% block body %}
+
+    <body>
+         <!--start page Loader -->
+         <div id="preloader">
+            <div id="status">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+            </div>
+        </div>
+        <!--end page Loader -->
+
+        
+            <!--Navbar Start-->
+            <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+                <div class="container-fluid custom-container">
+                    <a class="navbar-brand text-dark fw-bold me-auto" href="{{ url_for('index') }}">
+                        <img src="../static/images/logo-dark.png" height="22" alt="" class="logo-dark" />
+                        <img src="../static/images/logo-light.png" height="22" alt="" class="logo-light" />
+                    </a>
+                    <div>
+                        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mx-auto navbar-center">
+                            <li class="nav-item">
+                                    <a href="{{ url_for('index') }}" class="nav-link">Home</a>
+                                </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="jobsdropdown" role="button" data-bs-toggle="dropdown">
+                                    Company <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="jobsdropdown">
+                                    <li><a class="dropdown-item" href="{{ url_for('about') }}">About Us</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('services') }}">Services</a></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('team') }}">Team</a></li>
+                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                                    <a class="dropdown-item" href="{{ url_for('privacypolicy') }}">Priacy & Policy</a>
+                                    <li><a class="dropdown-item" href="{{ url_for('faqs') }}">Faqs</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="pagesdoropdown" role="button" data-bs-toggle="dropdown">
+                                    Pages
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-center" aria-labelledby="pagesdoropdown">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Jobs</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('joblist') }}">Job List</a>
+                                                
+                                                <a class="dropdown-item" href="{{ url_for('jobgrid') }}">Job Grid</a>
+                                                
+                                                 <a class="dropdown-item" href="{{ url_for('jobdetails') }}">Job Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('jobcategories') }}">Jobs Categories</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Candidates / Companys</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('candidatelist') }}">Candidate List</a>
+                                                <a class="dropdown-item" href="candidate-grid.html">Candidate Grid</a>
+                                                <a class="dropdown-item" href="{{ url_for('candidatedetails') }}">Candidate Details</a>
+                                                <a class="dropdown-item" href="{{ url_for('companylist') }}">Company List</a>
+                                                <a class="dropdown-item" href="{{ url_for('companydetails') }}">Company Details</a>
+                                            </div>
+                                        </div><!--end col-->
+                                        <div class="col-lg-4">
+                                            <span class="dropdown-header">Extra Pages</span>
+                                            <div>
+                                                <a class="dropdown-item" href="{{ url_for('signup') }}">Sign Up</a>
+                                                <a class="dropdown-item" href="{{ url_for('signin') }}">Sign In</a>
+                                                <a class="dropdown-item" href="{{ url_for('signout') }}">Sign Out</a>
+                                                <a class="dropdown-item" href="{{ url_for('resetpassword') }}">Reset Password</a>
+                                                <a class="dropdown-item" href="coming-soon.html">Coming Soon</a>
+                                                <a class="dropdown-item" href="404-error.html">404 Error</a>
+                                                 
+                                            </div>
+                                        </div><!--end col-->
+                                    </div>
+                                </div>
+                            </li><!--end dropdown-->
+                            <li class="nav-item dropdown dropdown-hover">
+                                <a class="nav-link" href="javascript:void(0)" id="productdropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Blog 
+                                    <div class="arrow-down"></div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="productdropdown">
+                                    <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                                    <li><a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+                                    <li><a class="dropdown-item" href="blog-modern.html">Blog Modern</a></li>
+                                    <li><a class="dropdown-item" href="blog-masonry.html">Blog Masonry</a></li>
+                                    <li><a class="dropdown-item" href="blog-details.html">Blog details</a></li>
+                                    <li><a class="dropdown-item" href="blog-author.html">Blog Author</a></li>
+                                </ul>
+                            </li><!--end dropdown-->
+                            <li class="nav-item">
+                                <a href="{{ url_for('contact') }}" class="nav-link">Contact</a>
+                            </li>
+                        </ul><!--end navbar-nav-->
+                    </div>
+                    <!--end navabar-collapse-->
+                    <ul class="header-menu list-inline d-flex align-items-center mb-0">
+                        <li class="list-inline-item dropdown me-4">
+                            
+                        <li class="list-inline-item dropdown">
+                            <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <img src="../static/images/profile.jpg" alt="mdo" width="35" height="35" class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi, Jansh</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('managejobpost') }}.html">Manage Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('bookmark') }}">Bookmarks Jobs</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('profile') }}">My Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('signout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul><!--end header-menu-->
+                </div>
+                <!--end container-->
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- START SIGN-UP MODAL -->
+            <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body p-5">
+                            <div class="position-absolute end-0 top-0 p-3">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="auth-content">
+                                <div class="w-100">
+                                    <div class="text-center mb-4">
+                                        <h5>Sign Up</h5>
+                                        <p class="text-muted">Sign Up and get access to all the features of vip careers</p>
+                                    </div>
+                                    <form action="#" class="auth-form">
+                                        <div class="mb-3">
+                                            <label for="usernameInput" class="form-label">Username</label>
+                                            <input type="text" class="form-control" id="usernameInput" placeholder="Enter your username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="passwordInput" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="emailInput" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="passwordInput" placeholder="Password">
+                                        </div>
+                                        <div class="mb-4">
+                                            <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">I agree to the <a href="javascript:void(0)" class="text-primary form-text text-decoration-underline">Terms and conditions</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                                        </div>
+                                    </form>
+                                    <div class="mt-3 text-center">
+                                        <p class="mb-0">Already a member ? <a href="{{ url_for('signin') }}" class="form-text text-primary text-decoration-underline"> Sign-in </a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--end modal-body-->
+                    </div><!--end modal-content-->
+                </div><!--end modal-dialog-->
+            </div>
+            <!-- END SIGN-UP MODAL -->
+
+            
+            <div class="main-content">
+
+                <div class="page-content">
+
+                    <!-- Start home -->
+                    <section class="page-title-box">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="text-center text-white">
+                                        <h3 class="mb-4">Candidate Details</h3>
+                                        <div class="page-next">
+                                            <nav class="d-inline-block" aria-label="breadcrumb text-center">
+                                                <ol class="breadcrumb justify-content-center">
+                                                    <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                                                    <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page"> Candidate Details </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </div>
+                        <!--end container-->
+                    </section>
+                    <!-- end home -->
+
+                    <!-- START SHAPE -->
+                    <div class="position-relative" style="z-index: 1">
+                        <div class="shape">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+                                <path fill="#FFFFFF" fill-opacity="1"
+                                    d="M0,192L120,202.7C240,213,480,235,720,234.7C960,235,1200,213,1320,202.7L1440,192L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- END SHAPE -->
+
+
+                    <!-- START CANDIDATE-DETAILS -->
+                    <section class="section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="card side-bar">
+                                        <div class="card-body p-4">
+                                            <div class="candidate-profile text-center">
+                                                <img src="../static/images/user/img-01.jpg" alt="" class="avatar-lg rounded-circle">
+                                                <h6 class="fs-18 mb-0 mt-4">Gabriel Palmer</h6>
+                                                <p class="text-muted mb-4">Creative Designer</p>
+                                                <ul class="candidate-detail-social-menu list-inline mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0)" class="social-link"><i class="uil uil-twitter-alt"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0)" class="social-link"><i class="uil uil-whatsapp"></i></a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a href="javascript:void(0)" class="social-link"><i class="uil uil-phone-alt"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!--end candidate-profile-->
+
+                                        <div class="candidate-profile-overview  card-body border-top p-4">
+                                            <h6 class="fs-17 fw-semibold mb-3">Profile Overview</h6>
+                                            <ul class="list-unstyled mb-0">
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Categories</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">Accounting / Finance</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Offered Salary</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">$450 per hour</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Languages</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">English, Turkish, Japanese</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Experience</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">3 Years</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Qualification</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">Associate Degree</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex">
+                                                        <label class="text-dark">Views</label>
+                                                        <div>
+                                                            <p class="text-muted mb-0">2574</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="mt-3">
+                                                <a href="javascript:void(0)" class="btn btn-danger btn-hover w-100"><i class="uil uil-phone"></i> Contact Me</a>
+                                                <a href="javascript:void(0)" class="btn btn-primary btn-hover w-100 mt-2"><i class="uil uil-import"></i> Download CV</a>
+                                            </div>
+                                            <ul class="list-inline d-flex justify-content-between align-items-center mb-0 mt-2">
+                                                <li class="list-inline-item text-warning review-rating">
+                                                    <i class="mdi mdi-star"></i>
+                                                    <i class="mdi mdi-star"></i>
+                                                    <i class="mdi mdi-star"></i>
+                                                    <i class="mdi mdi-star"></i>  
+                                                    <i class="mdi mdi-star-half-full"></i>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <div class="favorite-icon">
+                                                        <a href="javascript:void(0)"><i class="uil uil-heart-alt fs-18"></i></a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div><!--candidate-profile-overview-->
+                                        <div class="card-body p-4 border-top">
+                                            <h6 class="fs-17 fw-semibold mb-3">Professional Skills</h6>
+                                            <div>
+                                                <span class="badge bg-soft-success fs-13 mt-1">User Interface Design</span>
+                                                <span class="badge bg-soft-success fs-13 mt-1">Web Design</span>
+                                                <span class="badge bg-soft-success fs-13 mt-1">Responsive Design</span>
+                                                <span class="badge bg-soft-success fs-13 mt-1">Mobile App Design</span>
+                                                <span class="badge bg-soft-success fs-13 mt-1">UI Design</span>
+                                            </div>
+                                        </div><!--end card-body-->
+                                        <div class="candidate-contact-details card-body p-4 border-top">
+                                            <h6 class="fs-17 fw-semibold mb-3">Contact Details</h6>
+                                            <ul class="list-unstyled mb-0">
+                                                <li>
+                                                    <div class="d-flex align-items-center mt-4">
+                                                        <div class="icon bg-soft-primary flex-shrink-0">
+                                                            <i class="uil uil-envelope-alt"></i>
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h6 class="fs-14 mb-1">Email</h6>
+                                                            <p class="text-muted mb-0">gabrielpalmer@gmail.com</p> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center mt-4">
+                                                        <div class="icon bg-soft-primary flex-shrink-0">
+                                                            <i class="uil uil-map-marker"></i>
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h6 class="fs-14 mb-1">Address</h6>
+                                                            <p class="text-muted mb-0">Dodge City, Louisiana</p> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center mt-4">
+                                                        <div class="icon bg-soft-primary flex-shrink-0">
+                                                            <i class="uil uil-phone"></i>
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h6 class="fs-14 mb-1">Phone</h6>
+                                                            <p class="text-muted mb-0">+1(452) 125-6789</p> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex align-items-center mt-4">
+                                                        <div class="icon bg-soft-primary flex-shrink-0">
+                                                            <i class="uil uil-skype-alt"></i>
+                                                        </div>
+                                                        <div class="ms-3">
+                                                            <h6 class="fs-14 mb-1">Skype</h6>
+                                                            <p class="text-muted mb-0">@gabrielpalmer</p> 
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div><!--end candidate-overview-->
+                                    </div><!--end card-->
+                                </div><!--end col-->
+                                
+                                <div class="col-lg-8">
+                                    <div class="card candidate-details ms-lg-4 mt-4 mt-lg-0">
+                                        <div class="card-body p-4 candidate-personal-detail">
+                                            <div>
+                                                <h6 class="fs-17 fw-semibold mb-3">About Me</h6>
+                                                <p class="text-muted mb-2">Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No
+                                                    shortcuts. Even if the client is being careless. Some quick example text to build on the card title and bulk the card's content Moltin gives you platform.</p>
+                                                <p class="text-muted mb-0">As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience lies in successfully conceptualizing, designing, and modifying consumer products specific to interior design and home furnishings.</p>
+                                            </div>
+                                            <div class="candidate-education-details mt-4 pt-3">
+                                                <h6 class="fs-17 fw-bold mb-0">Education</h6>
+                                                <div class="candidate-education-content mt-4 d-flex">
+                                                    <div class="circle flex-shrink-0 bg-soft-primary"> B </div>
+                                                    <div class="ms-4">
+                                                        <h6 class="fs-16 mb-1">BCA - Bachelor of Computer Applications</h6>
+                                                        <p class="mb-2 text-muted">International University - (2004 - 2010)</p>
+                                                        <p class="text-muted">There are many variations of passages of available, but the majority alteration in some form. As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="candidate-education-content mt-4 d-flex">
+                                                    <div class="circle flex-shrink-0 bg-soft-primary"> M </div>
+                                                    <div class="ms-4">
+                                                        <h6 class="fs-16 mb-1">MCA - Master of Computer Application</h6>
+                                                        <p class="mb-2 text-muted">International University - (2010 - 2012)</p>
+                                                        <p class="text-muted">There are many variations of passages of available, but the majority alteration in some form. As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience.</p>
+                                                    </div>
+                                                </div> 
+                                                <div class="candidate-education-content mt-4 d-flex">
+                                                    <div class="circle flex-shrink-0 bg-soft-primary"> D </div>
+                                                    <div class="ms-4">
+                                                        <h6 class="fs-16 mb-1">Design Communication Visual</h6>
+                                                        <p class="text-muted mb-2">International University - (2012-2015)</p>
+                                                        <p class="text-muted">There are many variations of passages of available, but the majority alteration in some form. As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience.</p>
+                                                    </div>
+                                                </div>
+                                            </div><!--end candidate-education-details-->
+                                            <div class="candidate-education-details mt-4 pt-3">
+                                                <h6 class="fs-17 fw-bold mb-0">Experience</h6>
+                                                <div class="candidate-education-content mt-4 d-flex">
+                                                    <div class="circle flex-shrink-0 bg-soft-primary"> W </div>
+                                                    <div class="ms-4">
+                                                        <h6 class="fs-16 mb-1">Web Design & Development Team Leader</h6>
+                                                        <p class="mb-2 text-muted">Creative Agency - (2013 - 2016)</p>
+                                                        <p class="text-muted">There are many variations of passages of available, but the majority alteration in some form. As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="candidate-education-content mt-4 d-flex">
+                                                    <div class="circle flex-shrink-0 bg-soft-primary"> P </div>
+                                                    <div class="ms-4">
+                                                        <h6 class="fs-16 mb-1">Project Manager</h6>
+                                                        <p class="mb-2 text-muted">vip careers Technology Pvt.Ltd - (Pressent)</p>
+                                                        <p class="text-muted mb-0">There are many variations of passages of available, but the majority alteration in some form. As a highly skilled and successfull product development and design specialist with more than 4 Years of My experience.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="candidate-portfolio mt-4 pt-3">
+                                                <h6 class="fs-17 fw-bold mb-0">Projects</h6>
+                                                <div class="row">
+                                                    <div class="col-lg-4 mt-4">
+                                                        <div class="candidate-portfolio-box card border-0">
+                                                            <img src="../static/images/blog/img-01.jpg" alt="" class="img-fluid">
+                                                            <div class="bg-overlay"></div>
+                                                            <div class="zoom-icon">
+                                                                <a href="../static/images/blog/img-01.jpg" class="image-popup text-white" data-title="The Coding Awards" data-description="There are many variations of passages of available, but the majority alteration in some form."><i class="uil uil-search-alt"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 mt-4">
+                                                        <div class="candidate-portfolio-box card border-0">
+                                                            <img src="../static/images/blog/img-02.jpg" alt="" class="img-fluid">
+                                                            <div class="bg-overlay"></div>
+                                                            <div class="zoom-icon">
+                                                                <a href="../static/images/blog/img-02.jpg" class="image-popup text-white" data-title="Project Explained" data-description="There are many variations of passages of available, but the majority alteration in some form."><i class="uil uil-search-alt"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 mt-4">
+                                                        <div class="candidate-portfolio-box card border-0">
+                                                            <img src="../static/images/blog/img-03.jpg" alt="" class="img-fluid">
+                                                            <div class="bg-overlay"></div>
+                                                            <div class="zoom-icon">
+                                                                <a href="../static/images/blog/img-03.jpg" class="image-popup text-white" data-title="Social Geek Made" data-description="There are many variations of passages of available, but the majority alteration in some form."><i class="uil uil-search-alt"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!--end candidate-portfolio-->
+                                            <div class="mt-4 pt-3">
+                                                <div class="d-sm-flex align-items-top">
+                                                    <div class="flex-shrink-0">
+                                                        <img class="rounded-circle avatar-md img-thumbnail" src="../static/images/user/img-04.jpg" alt="img">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-sm-3">
+                                                        <div>
+                                                            <p class="text-muted float-end fs-14 mb-2">Jun 23, 2021</p>
+                                                            <h6 class="mt-sm-0 mt-3 mb-1">Michelle Durant</h6>
+                                                            <div class="text-warning review-rating mb-2">
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star"></i>  
+                                                                <i class="mdi mdi-star-half-full"></i>
+                                                            </div>
+                                                            <p class="text-muted fst-italic">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour "</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-sm-flex align-items-top mt-4">
+                                                    <div class="flex-shrink-0">
+                                                        <img class="rounded-circle avatar-md img-thumbnail" src="../static/images/user/img-02.jpg" alt="img">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-sm-3">
+                                                        <div>
+                                                            <p class="text-muted float-end fs-14 mb-2">Jun 25, 2021</p>
+                                                            <h6 class="mt-sm-0 mt-3 mb-1">Jeffrey Montgomery</h6>
+                                                            <div class="text-warning review-rating mb-2">
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star"></i>
+                                                                <i class="mdi mdi-star-half-full"></i>
+                                                                <i class="mdi mdi-star-outline"></i>
+                                                            </div>
+                                                            <p class="text-muted fst-italic">" There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour "</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <form action="#" class="mt-4 pt-3">
+                                                <h6 class="fs-17 fw-semibold mb-2">Add a review</h6>
+                                                <p class="text-muted mb-3">Your Rating for this listing</p>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="mb-3">
+                                                            <label for="inputname" class="form-label">Your Name</label>
+                                                            <input type="text" class="form-control" id="inputname" placeholder="Enter your name">
+                                                        </div>
+                                                    </div><!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="inputemail" class="form-label">Email</label>
+                                                            <input type="email" class="form-control" id="inputemail" placeholder="Enter your email">
+                                                        </div>
+                                                    </div><!--end col-->
+                                                    <div class="col-lg-6">
+                                                        <div class="mb-3">
+                                                            <label for="inputsubject" class="form-label">Subject</label>
+                                                            <input type="text" class="form-control" id="inputsubject" placeholder="Subject">
+                                                        </div>
+                                                    </div><!--end col-->
+                                                    <div class="col-lg-12">
+                                                        <div class="mb-3">
+                                                            <label for="inputcoment" class="form-label">Review</label>
+                                                            <textarea class="form-control" id="inputcoment" rows="3" placeholder="Add your review"></textarea>
+                                                        </div>
+                                                    </div><!--end col-->
+                                                </div><!--end row-->
+                                                <div class="text-end">
+                                                    <button type="submit" class="btn btn-primary btn-hover">Submit Review <i class="uil uil-angle-right-b"></i></button>
+                                                </div>
+                                            </form> 
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </div><!--end container-->
+                    </section>
+                    <!-- END CANDIDATE-DETAILS -->
+
+                </div>
+                <!-- End Page-content -->
+
+                <!-- START SUBSCRIBE -->
+                <section class="bg-subscribe">
+                    <div class="container">
+                        <div class="row justify-content-between align-items-center">
+                            <div class="col-lg-6">
+                                <div class="text-center text-lg-start">
+                                    <h4 class="text-white">Get New Jobs Notification!</h4>
+                                    <p class="text-white-50 mb-0">Subscribe & get all related jobs notification.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mt-4 mt-lg-0">
+                                    <form class="subscribe-form" action="#">
+                                        <div class="input-group justify-content-center justify-content-lg-end">
+                                            <input type="text" class="form-control" id="subscribe" placeholder="Enter your email">
+                                            <button class="btn btn-primary" type="button" id="subscribebtn">Subscribe</button>
+                                        </div>
+                                    </form><!--end form-->
+                                </div>
+                            </div>
+                            <!--end col-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <!--end container-->
+                    <div class="email-img d-none d-lg-block">
+                        <img src="../static/images/subscribe.png" alt="" class="img-fluid">
+                    </div>
+                </section>
+                <!-- END SUBSCRIBE -->
+
+                <!-- START FOOTER -->
+                <section class="bg-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="footer-item mt-4 mt-lg-0 me-lg-5">
+                                    <h4 class="text-white mb-4">vip careers</h4>
+                                    <p class="text-white-50">It is a long established fact that a reader will be of a page reader
+                                        will be of at its layout.</p>
+                                    <p class="text-white mt-3">Follow Us on:</p>
+                                    <ul class="footer-social-menu list-inline mb-0">
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-linkedin-alt"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-google"></i></a></li>
+                                        <li class="list-inline-item"><a href="#"><i class="uil uil-twitter"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">Company</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('about') }}"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
+                                        <li><a href="{{ url_for('contact') }}"><i class="mdi mdi-chevron-right"></i> Contact Us</a></li>
+                                        <li><a href="{{ url_for('services') }}"><i class="mdi mdi-chevron-right"></i> Services</a></li>
+                                        <li><a href="blog.html"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
+                                        <li><a href="{{ url_for('team') }}"><i class="mdi mdi-chevron-right"></i> Team</a></li>
+                                        <li><a href="pricing.html"><i class="mdi mdi-chevron-right"></i> Pricing</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">For Jobs</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('jobcategories') }}"><i class="mdi mdi-chevron-right"></i> Browser Categories</a></li>
+                                        <li><a href="{{ url_for('joblist') }}"><i class="mdi mdi-chevron-right"></i> Browser Jobs</a></li>
+                                        <li><a href="{{ url_for('jobdetails') }}s.html"><i class="mdi mdi-chevron-right"></i> Job Details</a></li>
+                                        <li><a href="{{ url_for('bookmark') }}"><i class="mdi mdi-chevron-right"></i> Bookmark Jobs</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="text-white fs-16 mb-4">For Candidates</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('candidatelist') }}"><i class="mdi mdi-chevron-right"></i> Candidate List</a></li>
+                                        <li><a href="candidate-grid.html"><i class="mdi mdi-chevron-right"></i> Candidate Grid</a></li>
+                                        <li><a href="{{ url_for('candidatedetails') }}"><i class="mdi mdi-chevron-right"></i> Candidate Details</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-lg-2 col-6">
+                                <div class="footer-item mt-4 mt-lg-0">
+                                    <p class="fs-16 text-white mb-4">Support</p>
+                                    <ul class="list-unstyled footer-list mb-0">
+                                        <li><a href="{{ url_for('contact') }}"><i class="mdi mdi-chevron-right"></i> Help Center</a></li>
+                                        <li><a href="{{ url_for('faqs') }}"><i class="mdi mdi-chevron-right"></i> FAQ'S</a></li>
+                                        <li><a href="{{ url_for('privacypolicy') }}"><i class="mdi mdi-chevron-right"></i> Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end container-->
+                </section>
+                <!-- END FOOTER -->
+
+                <!-- START FOOTER-ALT -->
+                <div class="footer-alt">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p class="text-white-50 text-center mb-0">
+                                  TEAM - Kamalesh, Dharun, Bosha Pranesh, Praveen Kumar
+                                </p>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div><!--end container-->
+                </div>
+                <!-- END FOOTER -->
+
+                <!-- Style switcher -->
+                <div id="style-switcher" onclick="toggleSwitcher()" style="left: -165px;">
+                    <div>
+                        <h6>Select your color</h6>
+                        <ul class="pattern list-unstyled mb-0">
+                            <li>
+                                <a class="color-list color1" href="javascript: void(0);" onclick="setColorGreen()"></a>
+                            </li>
+                            <li>
+                                <a class="color-list color2" href="javascript: void(0);" onclick="setColor('blue')"></a>
+                            </li>
+                            <li>
+                                <a class="color-list color3" href="javascript: void(0);" onclick="setColor('green')"></a>
+                            </li>
+                        </ul>
+                        <div class="mt-3">
+                            <h6>Light/dark Layout</h6>
+                            <div class="text-center mt-3">
+                                <!-- light-dark mode -->
+                                <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-3">
+                                    <i class="uil uil-brightness mode-dark mx-auto"></i>
+                                    <i class="uil uil-moon mode-light"></i>
+                                </a>
+                                <!-- END light-dark Mode -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom d-none d-md-block" >
+                        <a href="javascript: void(0);" class="settings rounded-end"><i class="mdi mdi-cog mdi-spin"></i></a>
+                    </div>
+                </div>
+                <!-- end switcher-->
+
+                <!--start back-to-top-->
+                <button onclick="topFunction()" id="back-to-top">
+                    <i class="mdi mdi-arrow-up"></i>
+                </button>
+                <!--end back-to-top-->
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="../static/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="https://unicons.iconscout.com/release/v4.0.0/script/monochrome/bundle.js"></script>
+
+
+        <!-- Choice Js -->
+        <script src="../static/libs/choices.js/public/../static/scripts/choices.min.js"></script>
+
+        <!-- Light Box Js -->
+        <script src="../static/libs/glightbox/js/glightbox.min.js"></script>
+
+        <script src="../static/js/pages/lightbox.init.js"></script>
+
+        <!-- Switcher Js -->
+        <script src="../static/js/pages/switcher.init.js"></script>
+
+        <script src="../static/js/app.js"></script>
+        {% endblock %}
+
+    </body>
+</html>

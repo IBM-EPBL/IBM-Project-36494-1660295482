@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+    <div>
+        {% for datas in data %}
+        <span>{{datas['job_apply_link']}}</span>
+        {% endfor %}
+    </div>
+{% endblock body %}
